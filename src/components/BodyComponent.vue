@@ -48,9 +48,10 @@
     .container{
         @include my-flex-row;
         justify-content: space-around;
+        padding: 0 1.5rem;
         .merch{
-            width: calc((100% - 10rem) / 5);
-            margin: 0 1rem;
+            
+            width: calc(100% / 5);
             @include my-flex-row;
             div{
                 color: $white;
