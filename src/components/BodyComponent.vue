@@ -2,28 +2,11 @@
     <!-- main body divided inot 2 pts -->
     <section><!-- temporary empty sect --></section>
     <!-- blue bg section -->
-    <!-- problem: implementation of a dynamic img src -->
     <section class="blue-pt">
         <div class="container">
-            <div class="merch">
-                <img src="../assets/img/buy-comics-digital-comics.png" alt="digital comics">
-                <div>digital comics</div>
-            </div>
-            <div class="merch">
-                <img src="../assets/img/buy-comics-merchandise.png" alt="merch">
-                <div>digital comics</div>
-            </div>
-            <div class="merch">
-                <img src="../assets/img/buy-comics-subscriptions.png" alt="subscription">
-                <div>digital comics</div>
-            </div>
-            <div class="merch">
-                <img src="../assets/img/buy-comics-shop-locator.png" alt="shop">
-                <div>digital comics</div>
-            </div>
-            <div class="merch">
-                <img src="../assets/img/buy-dc-power-visa.svg" alt="visa">
-                <div>digital comics</div>
+            <div class="merch" v-for="(item, index) in shop" :key="index">
+                <img :src="getPath(item)" :alt="shop.name">
+                <div>{{item.name}}</div>
             </div>
         </div>
     </section>
@@ -32,7 +15,38 @@
 <script>
     export default {
         name: 'BodyComponent',
-        
+        data() {
+            return {
+                shop:[
+                    {
+                        name: 'digital comics',
+                        path: '../assets/img/buy-comics-digital-comics.png'
+                    },
+                    {
+                        name: 'merch',
+                        path: '../assets/img/buy-comics-merchandise.png'
+                    },
+                    {
+                        name: 'subscription',
+                        path: '../assets/img/buy-comics-subscriptions.png'
+                    },
+                    {
+                        name: 'shop',
+                        path: '../assets/img/buy-comics-shop-locator.png'
+                    },
+                    {
+                        name: 'visa',
+                        path: '../assets/img/buy-dc-power-visa.svg'
+                    },
+                    
+                ]
+            }
+        },
+        methods: {
+            getPath(shop){
+                return new URL(shop.path, import.meta.url).href;
+            },
+        },
     }
 </script>
 
@@ -50,9 +64,9 @@
         justify-content: space-around;
         padding: 0 1.5rem;
         .merch{
-            
             width: calc(100% / 5);
             @include my-flex-row;
+            justify-content: center;
             div{
                 color: $white;
                 text-transform: uppercase;

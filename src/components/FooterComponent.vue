@@ -19,17 +19,12 @@
     <section class="bottom">
         <div class="container">
             <button class="btn">sign-up now!</button>
-            <!-- problem: implementation of a dynamic img src -->
             <div class="social">
                 <span>follow us</span>
                 <div>
-                    <img src="../assets/img/footer-facebook.png" alt="facebook">
-                    <img src="../assets/img/footer-twitter.png" alt="twitter">
-                    <img src="../assets/img/footer-youtube.png" alt="youtube">
-                    <img src="../assets/img/footer-pinterest.png" alt="pinterest">
-                    <img src="../assets/img/footer-periscope.png" alt="periscope">
-
+                    <img v-for="(social, index) in socials" :src="getPath(social)" :key="index" :alt="social.name">
                 </div>
+
                 
 
             </div>
@@ -50,6 +45,34 @@
                     ['sites', 'DC', 'MAD magazine', 'dc kids', 'dc universe', 'dc power visa'],
                     
                 ],
+                socials:[
+                    {
+                        name: 'facebook',
+                        path: '../assets/img/footer-facebook.png'
+                    },
+                    {
+                        name: 'twitter',
+                        path: '../assets/img/footer-twitter.png'
+                    },
+                    {
+                        name: 'youtube',
+                        path: '../assets/img/footer-youtube.png'
+                    },
+                    {
+                        name: 'pinterest',
+                        path: '../assets/img/footer-pinterest.png'
+                    },
+                    {
+                        name: 'periscope',
+                        path: '../assets/img/footer-periscope.png'
+                    },
+                    
+                ]
+            }
+        },
+        methods: {
+            getPath(social){
+                return new URL(social.path, import.meta.url).href;
             }
         },
     }
