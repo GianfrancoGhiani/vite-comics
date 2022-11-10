@@ -1,6 +1,6 @@
 <template>
-    <div class="bg">
-        <section class="container">
+    <section class="bg">
+        <div class="container">
             <div class="lists">
                 <ul v-for="(list, index) in lists" :key="index">
                     <li v-for="(elem, index) in list" :key="index" >
@@ -11,9 +11,26 @@
             <div class="big-logo">
                 <img src="../assets/img/dc-logo-bg.png" alt="DC logo">
             </div>
-        </section>
-        
-    </div>
+        </div>
+    </section>
+    <section class="bottom">
+        <div class="container">
+            <button class="btn">sign-up now!</button>
+            <div class="social">
+                <span>follow us</span>
+                <div>
+                    <img src="../assets/img/footer-facebook.png" alt="facebook">
+                    <img src="../assets/img/footer-twitter.png" alt="twitter">
+                    <img src="../assets/img/footer-youtube.png" alt="youtube">
+                    <img src="../assets/img/footer-pinterest.png" alt="pinterest">
+                    <img src="../assets/img/footer-periscope.png" alt="periscope">
+
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -27,7 +44,7 @@
                     ['dc', 'terms of use', 'privacy policy (new)', 'ad choices', 'advertising', 'jobs', 'subscriptions', 'talent workshop', 'CPSC certificates', 'ratings', 'shop help', 'contact us'],
                     ['sites', 'DC', 'MAD magazine', 'dc kids', 'dc universe', 'dc power visa'],
                     
-                ]
+                ],
             }
         },
     }
@@ -41,45 +58,88 @@
     height: fit-content;
     background-image: url('../assets/img/footer-bg.jpg');
     overflow: hidden;
-
-
-}
-.container{
-    height: 400px;
-    padding: 3.5rem 0;
-    @include my-flex-row;
-    justify-content: space-between;
-}
-
-.lists{
-    width: 50%;
-    height: 100%;
-    margin-left: -1rem;
-    @include my-flex-row;
-    align-items: flex-start;
-    flex-flow: column wrap;
-
-    ul{
-        list-style: none;
-        margin: 1rem;
-        li{
-            a{
-                text-decoration: none;
-                color: $grey-text;
-                text-transform: capitalize;
-                
-            }
-            :hover{
-                    color: $white;
+    .container{
+        height: 400px;
+        padding: 3.5rem 0;
+        @include my-flex-row;
+        justify-content: space-between;
+        .lists{
+            width: 50%;
+            height: 100%;
+            margin-left: -1rem;
+            @include my-flex-row;
+            align-items: flex-start;
+            flex-flow: column wrap;
+            ul{
+                list-style: none;
+                margin: 1rem;
+                li{
+                    a{
+                        text-decoration: none;
+                        color: $grey-text;
+                        text-transform: capitalize;
+                        
+                    }
+                    :hover{
+                            color: $white;
+                        }
+                    .list-title{
+                        text-transform: uppercase;
+                        color: $white;
+                        font-weight: 800;
+                    }
                 }
-            .list-title{
-                text-transform: uppercase;
-                color: $white;
-                font-weight: 800;
+            }
+    }}
+}
+.bottom{
+    background-color: $grey-footer-bg;
+    height: 100px;
+    @include my-flex-row;
+
+    .container{
+        @include my-flex-row;
+        justify-content: space-between;
+        .btn{
+            padding: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            background-color: transparent;
+            color: $white;
+            border-color: $lightblue;
+
+            
+            &:hover{
+                background-color: lighten($color: $grey-footer-bg, $amount: 10);
+                cursor: pointer;
             }
         }
-        
-    }
+        .social{
+            @include my-flex-row;
+
+            span{
+                text-transform: uppercase;
+                font-weight: 700;
+                color: $lightblue;
+                margin: 1.5rem;
+                &:hover{
+                    color: darken($color: $lightblue, $amount: 10);
+                    cursor: pointer;
+                }
+            }
+            div{
+                @include my-flex-row;
+                img{
+                    margin: 0.3rem;
+                    &:hover{
+                        filter: brightness(1.3);
+                        cursor: pointer;
+                    }
+                }
+            }
+    }}
 }
+
+
 
 </style>
