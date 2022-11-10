@@ -1,7 +1,7 @@
 <template>
-    <div>
-        
-    </div>
+    <section class="hero container">
+        Content Here
+    </section>
 </template>
 
 <script>

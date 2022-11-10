@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="container">
         <!-- logo -->
         <div class="logo">
             <img src="../assets/img/dc-logo.png" alt="DC Logo">
@@ -79,11 +79,10 @@
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables.scss' as *;
 @use '../assets/styles/partials/mixim.scss' as *;
+@use '../assets/styles/general.scss' as *;
+
 section{
     height: 100px;
-    width: 60%;
-    margin: 0 auto;
-    max-width: 1170px;
     @include my-flex-row;
     justify-content: space-between;
     ul{
