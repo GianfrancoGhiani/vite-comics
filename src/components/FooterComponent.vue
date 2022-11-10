@@ -1,4 +1,6 @@
 <template>
+    <!-- footer divided into 2 pts -->
+    <!-- the big one -->
     <section class="bg">
         <div class="container">
             <div class="lists">
@@ -13,9 +15,11 @@
             </div>
         </div>
     </section>
+    <!-- end page part -->
     <section class="bottom">
         <div class="container">
             <button class="btn">sign-up now!</button>
+            <!-- problem: implementation of a dynamic img src -->
             <div class="social">
                 <span>follow us</span>
                 <div>
@@ -38,6 +42,7 @@
         name: 'FooterComponent',
         data() {
             return {
+                // list of lists of references
                 lists:[               
                     ['dc comics', 'characters', 'comics', 'movies', 'TV', 'games', 'videos', 'news'],
                     ['shop', 'shop DC', 'shop DC collectibles'],
@@ -51,9 +56,11 @@
 </script>
 
 <style lang="scss" scoped>
-@use '../assets/styles/partials/mixim.scss' as *;
+@use '../assets/styles/partials/mixin.scss' as *;
 @use '../assets/styles/partials/variables.scss' as *;
+@use '../assets/styles/general.scss' as *;
 
+// big part
 .bg{
     height: fit-content;
     background-image: url('../assets/img/footer-bg.jpg');
@@ -92,6 +99,7 @@
             }
     }}
 }
+// end part
 .bottom{
     background-color: $grey-footer-bg;
     height: 100px;

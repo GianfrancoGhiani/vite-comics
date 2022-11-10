@@ -2,7 +2,7 @@
     <section class="container">
         <!-- logo -->
         <div class="logo">
-            <img src="../assets/img/dc-logo.png" alt="DC Logo">
+            <a href="#"><img src="../assets/img/dc-logo.png" alt="DC Logo"></a>
         </div>
         <!-- navbar -->
         <ul>
@@ -78,7 +78,7 @@
 
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables.scss' as *;
-@use '../assets/styles/partials/mixim.scss' as *;
+@use '../assets/styles/partials/mixin.scss' as *;
 @use '../assets/styles/general.scss' as *;
 
 section{
@@ -89,35 +89,35 @@ section{
         @include my-flex-row;
 
     }
-}
-.logo{
-
-    img{
-        max-width: 100%;
-        width: 80%;
-    }
-}
-li{
-    list-style: none;
-    font-weight: 600;
-    margin: 0.8rem;
-    line-height: 100px;
-    border-bottom: 4px solid transparent;
-
-    .caps{
-        text-transform: uppercase;
-        text-decoration: none;
-        color: $dark;
-    }
-    &:hover, &.active{
-        cursor: pointer;
-        a{
-        color: $lightblue;
-
+    .logo{
+        img{
+            max-width: 100%;
+            width: 80%;
         }
-        border-bottom: 4px solid $lightblue;
+    }
+    li{
+        list-style: none;
+        font-weight: 600;
+        margin: 0.8rem;
+        line-height: 100px;
+        border-bottom: 4px solid transparent;
+
+        .caps{
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $dark;
+        }
+        &:hover, &.active{
+            cursor: pointer;
+            a{
+            color: $lightblue;
+
+            }
+            border-bottom: 4px solid $lightblue;
+        }
     }
 }
+
     
 
 
