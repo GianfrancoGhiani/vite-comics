@@ -81,7 +81,7 @@
 <style lang="scss" scoped>
 @use '../assets/styles/partials/mixin.scss' as *;
 @use '../assets/styles/partials/variables.scss' as *;
-@use '../assets/styles/general.scss' as *;
+
 
 // big part
 .bg{
