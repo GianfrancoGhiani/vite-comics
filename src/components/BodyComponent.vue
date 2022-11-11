@@ -1,6 +1,8 @@
 <template>
     <!-- main body divided inot 2 pts -->
-    <section><!-- temporary empty sect --></section>
+    <section>
+        <ComicCard/>
+    </section>
     <!-- blue bg section -->
     <section class="blue-pt">
         <div class="container">
@@ -13,6 +15,7 @@
 </template>
 
 <script>
+import ComicCard from './ComicCard.vue';
     export default {
         name: 'BodyComponent',
         data() {
@@ -42,6 +45,9 @@
                 ]
             }
         },
+        components:{
+            ComicCard,
+        }
         methods: {
             getPath(shop){
                 return new URL(shop.path, import.meta.url).href;
