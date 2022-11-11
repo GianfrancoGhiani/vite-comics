@@ -3,3 +3,8 @@
     flex-flow: row nowrap;
     align-items: center;
 }
+@mixin my-flex-col {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}

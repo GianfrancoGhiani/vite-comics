@@ -1,14 +1,22 @@
 <template>
-    <!-- main body divided inot 2 pts -->
-    <section>
-        <ComicCard/>
+    <!-- main body divided into 3 pts -->
+    <!-- jumbo -->
+    <section class="jumbo">
+        <JumbotronComponent />
+    </section>
+    <!-- comics list -->
+    <section class="comic-list">
+        <div class="container">
+            <ComicCard v-for="(comic, index) in comicList" :key="index" :objComic="comic"/>
+        </div>
+        <button class="caps">load more</button>
     </section>
     <!-- blue bg section -->
     <section class="blue-pt">
         <div class="container">
             <div class="merch" v-for="(item, index) in shop" :key="index">
                 <img :src="getPath(item)" :alt="shop.name">
-                <div>{{item.name}}</div>
+                <div class="caps">{{item.name}}</div>
             </div>
         </div>
     </section>
@@ -16,6 +24,8 @@
 
 <script>
 import ComicCard from './ComicCard.vue';
+import JumbotronComponent from './JumbotronComponent.vue'
+import comicListData from '../assets/data/dc-comics.json';
     export default {
         name: 'BodyComponent',
         data() {
@@ -42,16 +52,21 @@ import ComicCard from './ComicCard.vue';
                         path: '../assets/img/buy-dc-power-visa.svg'
                     },
                     
-                ]
+                ],
+                comicList: comicListData,
             }
         },
         components:{
             ComicCard,
-        }
+            JumbotronComponent,
+        },
         methods: {
             getPath(shop){
                 return new URL(shop.path, import.meta.url).href;
             },
+        },
+        mounted() {
+            
         },
     }
 </script>
@@ -59,7 +74,30 @@ import ComicCard from './ComicCard.vue';
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables.scss' as *;
 @use '../assets/styles/partials/mixin.scss' as *;
-@use '../assets/styles/general.scss' as *;
+.comic-list{
+    background-color: $dark;
+    padding: 3rem 0;
+    @include my-flex-col;
+
+    .container{
+        @include my-flex-row;
+        flex-flow: wrap;
+        align-items: flex-start;
+    }
+    button{
+        color: $white;
+        background-color: $lightblue;
+        padding: .8rem 3rem;
+        width: fit-content;
+        border: 0;
+        font-weight: 700;
+        cursor: pointer;
+        &:hover{
+            background-color: darken($color:  $lightblue, $amount: 10);
+        }
+    }
+}
+
 .blue-pt{
     background-color: $lightblue;
     height: 155px;
@@ -75,7 +113,7 @@ import ComicCard from './ComicCard.vue';
             justify-content: center;
             div{
                 color: $white;
-                text-transform: uppercase;
+                
                 margin-left: 1rem;
             }
             img{

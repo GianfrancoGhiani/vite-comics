@@ -18,9 +18,9 @@
     <!-- end page part -->
     <section class="bottom">
         <div class="container">
-            <button class="btn">sign-up now!</button>
+            <button class="btn caps">sign-up now!</button>
             <div class="social">
-                <span>follow us</span>
+                <span class="caps">follow us</span>
                 <div>
                     <img v-for="(social, index) in socials" :src="getPath(social)" :key="index" :alt="social.name">
                 </div>
@@ -90,16 +90,16 @@
     overflow: hidden;
     .container{
         height: 400px;
-        padding: 3.5rem 0;
+        padding: 2.5rem 0;
         @include my-flex-row;
         justify-content: space-between;
         .lists{
             width: 50%;
             height: 100%;
             margin-left: -1rem;
-            @include my-flex-row;
+            @include my-flex-col;
+            flex-wrap: wrap;
             align-items: flex-start;
-            flex-flow: column wrap;
             ul{
                 list-style: none;
                 margin: 1rem;
@@ -134,7 +134,6 @@
         .btn{
             padding: 1rem;
             font-weight: 700;
-            text-transform: uppercase;
             background-color: transparent;
             color: $white;
             border-color: $lightblue;
@@ -149,7 +148,6 @@
             @include my-flex-row;
 
             span{
-                text-transform: uppercase;
                 font-weight: 700;
                 color: $lightblue;
                 margin: 1.5rem;

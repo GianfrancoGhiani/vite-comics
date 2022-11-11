@@ -29,6 +29,8 @@ import FooterComponent from './components/FooterComponent.vue';
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.caps{
+    text-transform: uppercase;
+}
 </style>
